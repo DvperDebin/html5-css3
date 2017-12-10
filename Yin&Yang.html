@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            background-color: #dddddd;
+        }
+        #outerCir{
+            width: 500px;
+            height: 500px;
+            margin: auto;
+            position: absolute;
+            left: 0px;
+            top:0px;
+            right: 0px;
+            bottom: 0px;
+            border-radius: 50%;
+        }
+        #leftHalfCir{
+            width: 50%;
+            height: 100%;
+            background-color: black;
+            float: left;
+            border-radius: 500px 0 0 500px;
+        }
+        #rightHalfCir{
+            width: 50%;
+            height: 100%;
+            background-color: white;
+            float: left;
+            border-radius: 0 500px 500px 0;
+            position: relative;
+        }
+        .innerBlack{
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background-color: black;
+            position: absolute;
+            left: -125px;
+            top: 0px;
+        }
+        .innerWhite{
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background-color: white;
+            position: absolute;
+            left: 125px;
+            top: 250px;
+        }
+        .tinyWhite{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: white;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .tinyBlack{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: black;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+<div id="outerCir">
+    <div id="leftHalfCir"> <!--左半圆-->
+        <div class="innerWhite">
+            <div class="tinyBlack"></div>
+        </div>
+    </div>
+
+    <div id="rightHalfCir"><!--右半圆-->
+        <div class="innerBlack">
+            <div class="tinyWhite"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

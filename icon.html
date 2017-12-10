@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        .container{
+            width: 500px;
+            height: 600px;
+            margin: auto;
+            position: absolute;
+            top:0;
+            left: 0;
+            bottom: 0;
+            right:0;
+        }
+        .container > div{
+            height: 100px;
+            width: 100%;
+            text-align: center;
+        }
+        .container > div:hover{
+            background: rgba(230,230,230,0.35);
+            cursor: pointer;
+        }
+        .doc:before{
+            content: url("img/icon_doc.png");
+            display: inline-block;
+            vertical-align: middle;
+            width: 24px;
+        }
+        p{
+            display: inline-block;
+            line-height: 100px;
+        }
+
+        .mpg:before{
+            content: url("img/icon_mpg.png");
+            display: inline-block;
+            vertical-align: middle;
+            width: 24px;
+        }
+        .pdf:before{
+            content: url("img/icon_pdf.png");
+            display: inline-block;
+            vertical-align: middle;
+            width: 24px;
+        }
+        .txt:before{
+            content: url("img/icon_txt.png");
+            display: inline-block;
+            vertical-align: middle;
+            width: 24px;
+        }
+        .xls:before{
+            content: url("img/icon_xls.png");
+            display: inline-block;
+            vertical-align: middle;
+            width: 24px;
+        }
+        .xml:before{
+            content: url("img/icon_xml.png");
+            display: inline-block;
+            vertical-align: middle;
+            width: 24px;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="container">
+
+    <div class="doc">
+        <p>This is a doc file.doc</p>
+    </div>
+
+    <div class="mpg">
+        <p>This is a mpg file.mpg</p>
+    </div>
+
+    <div class="pdf">
+        <p>This is a pdf file.pdf</p>
+    </div>
+
+    <div class="txt">
+        <p>This is a txt file.txt</p>
+    </div>
+
+    <div class="xls">
+        <p>This is a xls file.xls</p>
+    </div>
+
+    <div class="xml">
+        <p>This is a xml file.xml</p>
+    </div>
+</div>
+
+</body>
+</html>

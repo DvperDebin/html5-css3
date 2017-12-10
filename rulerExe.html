@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        #ul{
+            list-style: none;
+            margin: 100px 0 0 100px;
+            height: 50px;
+
+        }
+        #ul > li{
+            width: 4px;
+            height: 8px;
+            background-color: black;
+            float: left;
+            margin:5px;
+            position: relative;
+        }
+        #ul > li > div{
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            top: 18px;
+            left: -3px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ul id="ul">
+
+        </ul>
+    </div>
+<script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var $ul = $('#ul');
+        var $arr = [];
+        for(var i = 0; i < 100; i++){
+            $ul.append('<li></li>');
+            if(i%10 === 0){
+                $arr.push(i);
+                $('#ul > li').eq(i).css('height',20);
+                $('#ul > li').eq(i).append('<div></div>');
+            }else if(i%5 === 0 && i%10 !== 0){
+                $('#ul > li').eq(i).css('height',15);
+            }
+        }
+        for(var j = 0; j< $arr.length; j++){
+            if(j === 0){
+                $('#ul > li').eq($arr[j]).children('div').html(j);
+
+            }else{
+                $('#ul > li').eq($arr[j]).children('div').html(j + '0');
+            }
+        }
+    })
+</script>
+</body>
+</html>
