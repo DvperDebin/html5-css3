@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        #container{
+            margin: 200px auto;
+            position: relative;
+            overflow: hidden;
+
+        }
+        #banner, #bottle{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+        #banner{
+            top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="container">
+    <div id="banner">
+        <img src="img/coke_bg.jpg">
+    </div>
+    <div id="bottle">
+        <img src="img/coke_can.png">
+    </div>
+</div>
+
+<script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+<script type="text/javascript">
+// 类似于js的window.onload
+    $(window).load(function () {
+
+            var $width = $('#bottle').width();
+            var $height = $('#bottle').height();
+
+            $('#container').css({
+                'width': $width,
+                'height': $height
+            })
+
+        // 解决空白区域
+        $('#banner').html('<img src="img/coke_bg.jpg"><img src="img/coke_bg.jpg">');
+        $('#banner > img').css('float',left);
+        var $newWidth = $('#banner').width() * 2;
+        $('#banner').css('width',$newWidth);
+
+
+
+        // 纸片动起来
+        var left = $('#banner').position().left;
+            setInterval(function () {
+               left = left - 1;
+               if(left === -($newWidth/2)){
+                   left = 0;
+               }
+                $('#banner').css('left',left);
+            },20)
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        img{
+            display: block;
+        }
+        .container{
+            position: fixed;
+            bottom: 0px;
+            right: 0px;
+            width: 50px;
+            height: 50px;
+        }
+        #first{
+            background-image: url("img/home.png");
+            width: 50px;
+            height: 50px;
+            z-index: 2;
+            border-radius: 50%;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+        .outer{
+            position: relative;
+            left: 4px;
+            top: 4px;
+        }
+        .outer > img{
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="container">
+    <div id="first"></div>
+
+    <div class="outer">
+        <img src="img/clos.png" >
+        <img src="img/full.png" >
+        <img src="img/open.png" >
+        <img src="img/prev.png" >
+        <img src="img/refresh.png" >
+    </div>
+
+</div>
+
+<script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+<script type="text/javascript">
+    
+    $(function () {
+
+        var flag = true;
+        $('#first').on('click',function () {
+           if(flag){
+               $('#first').css({
+                   'transform':'rotate(360deg)',
+                   'transition': 'transform 1.5s'
+               });
+
+               // 这里要让小图片飞出去
+                var dis = 200;  // 斜边距离
+                var len = $('.outer > img').length;
+                var deg = 90;
+                var perDeg = deg/(len-1); //22.5deg
+               for(var i = 0; i < len; i++){         //  200 * cos/sin((22.5*i / 180)*pi)
+                   $('.outer > img').eq(i).css({
+                       'top': -(dis* (Math.cos( ((perDeg*i)/180)*Math.PI ))),
+                       'left': -(dis* (Math.sin( ((perDeg*i)/180)*Math.PI ))),
+                       'transform': 'rotate(-720deg)',
+                       'transition' : '1s '+ (0.1*i)+'s'
+                   } )
+
+               }
+               flag = false;
+           }else{
+               $('#first').css({
+                   'transform':'rotate(0)',
+                   'transition': 'transform 1.5s'
+               });
+               var len = $('.outer > img').length;
+               for(var i = 0; i < len; i++){
+                   $('.outer > img').eq(i).css({
+                       'left' : 0,
+                       'top' : 0,
+                       'transform': 'rotate(0)',
+                       'transition' : '1.5s '+(0.1*i)+'s'
+                   } );
+               }
+               flag = true;
+           }
+        })
+    })
+
+</script>
+</body>
+
+
+
+
+</html>

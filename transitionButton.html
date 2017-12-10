@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        .button{
+            width: 200px;
+            height: 50px;
+            background-color: deepskyblue;
+            margin: 100px auto;
+            line-height: 50px;
+            text-align: center;
+            transition: 500ms;
+            position: relative;
+            cursor: pointer;
+            /*background-image: url("img/coke_bg.jpg");
+            color: rgba(0,0,0,0.2);
+            -webkit-background-clip: text;*/
+        }
+        .button:hover{
+            background-color: #ddd;
+            color: white;
+        }
+        .topDiv, .botDiv{
+            width: 0px;
+            height: 10px;
+            background-color: lightgrey;
+            position: absolute;
+            transition: 500ms;
+        }
+        .topDiv{
+            left: 0px;
+            top: 0px;
+        }
+        .botDiv{
+            right: 0px;
+            bottom: 0px;
+        }
+        .button:hover .topDiv,.button:hover .botDiv{
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="button">
+    <div class="topDiv"></div>
+        <i class="fa fa-gamepad" aria-hidden="true"></i>
+        Start Game
+    <div class="botDiv"></div>
+</div>
+
+</body>
+</html>
